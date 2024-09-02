@@ -1,4 +1,4 @@
-# Shreenidhi
+# Shreenidhi Deepak Pai
 # Selection Sort Correctness
 
 Algorithm
