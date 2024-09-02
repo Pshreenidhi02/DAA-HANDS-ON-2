@@ -12,7 +12,7 @@ for i in 0 to arr.length - 1
        endif
     endfor
 
-   swap arr[i] with arr[min]
+   swap arr[i] with arr[min]<br>
 endfor
 
 # Correctness of Selection Sort <br>
