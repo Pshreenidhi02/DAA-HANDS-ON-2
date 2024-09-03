@@ -1,0 +1,12 @@
+A = [9856, 8735, 645, 76, 53, 95, 735, 957, 43243, 46, 3, 0]
+
+for i in range(len(A)-1):
+    min= i
+    for j in range(i+1, len(A)):
+        if A[min]>A[j]:
+            min= j
+    A[i], A[min]= A[min],A[i]
+
+print("Sorted Array")
+for i in range(len(A)):
+    print(A[i], end=" ")
