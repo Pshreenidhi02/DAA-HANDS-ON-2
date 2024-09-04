@@ -16,30 +16,48 @@ for i in 0 to arr.length - 1
 endfor
 
 # Correctness of Selection Sort <br>
-Description of Selection Sort<br>
+To establish that the Selection Sort algorithm is correct, we can use mathematical induction and induction invariants. The idea is to prove the Selection Sort algorithm correctly sorts an array by maintaining certain conditions (invariants) that hold true before and after each iteration of the main loop.<br>
 
-Outer Loop <br>
-Before each iteration of the outer loop, the first i-1 elements are sorted in ascending order
-The elements in the subarray A[i..n] are greater or equal to the elements in A[1..i-1]
-The elements of the array remain unchanged<br>
-Inner Loop <br>
-Before each iteration of the inner loop, min references the smallest element of the subarray A[i..j-1]
-The loop finds the smallest element in the subarray A[i..j-1] and updates min accordingly<br>
-Initialization of Inner Loop 
-Before the start of the inner loop, min is assigned to be i and j starts at i+1
-If A[k] < A[min], min is updated to be k, ensuring that min references the smallest element in the subarray A[i..k]
-Upon termination, min references the smallest element of the subarray A[i..j-1] = A[i..n]
-The swap done and the smallest element of A[i..n] at index i
+Selection Sort Algorithm<br>
 
+Selection Sort sorts an array by separating the array into two sub-arrays; namely, a sorted sub-array and an unsorted sub-array. The algorithm repeatedly finds the smallest remaining element from the unsorted sub-array and swaps it into the first index of the unsorted sub-array (thus finding the smallest element from the original array). The next iteration finds the minimum element from the unsorted sub-array (the number of swaps increases by one).
+ <br>
+Here's a high-level description of the algorithm to help understand the process of the algorithm in general: 
 <br>
-Before the start of the outer loop, 
-The first i-1 = 0 elements of the array are sorted in ascending order
-The elements in the subarray A[i..n] = A[1..n] are greater or equal to the elements in A[1..i-1] = A[1..0] = ∅
-The elements of the array remain unchanged
+1. Start with the first element at index 0 as the initial sorted portion of the array.
+2. For each element in the unsorted portion of the array, find the minimum element.
+3. Swap the minimum element into the first element of the unsorted portion of the array. Swap. 
+4. The sorted portion now has one more element added, and the process can continue to repeat until the entire array has been sorted. <br>
 
+To demonstrate the correctness of Selection Sort, we utilize a proof by loop invariant, which is a property that must be true both before and after each iteration of the loop.
 <br>
-The swap ensures that A[i+1..n] are greater or equal to the elements in A[1..i]
+Loop Invariant
 <br>
-Upon termination, the first n-1 elements of the array are sorted in ascending order
-The elements in the subarray A[n..n] are greater or equal to the elements in A[1..n-1]
-The elements of the array remain unchanged
+Before each iteration of the main loop, we will have the following invariant.
+<br>
+Invariant: At the beginning of iteration i, the subarray A[0..i-1] contains the i smallest elements and is sorted, and the subarray A[i..n-1] contains the unsorted elements.
+<br>
+Initialization
+<br>
+Base Case (Initialization step): Before the first iteration (i=0), the sorted part of the subarray is A[0..-1], which satisfies the invariant because it is trivially true (no elements in it). The unsorted part of the subarray is A[0..n-1].
+<br>
+Maintenance
+<br>
+Induction (Maintenance step): Assume the invariant holds at the beginning of iteration i. During iteration i, we do the following:
+1. Find the minimum of the unsorted part (A[i..n-1]).
+2. Swap it with A[i]. 
+<br>
+After the swap,
+- A[i] is now the i+1th smallest element in the entire array.
+- A[0..i] is now sorted and contains the smallest (and sorted) i+1 elements.
+- A[i+1..n-1] is still unsorted. 
+<br>
+Thus, we have maintained the invariant dynamically.
+<br>
+Termination
+<br>
+Termination (Termination step): The loop finishes when i=n-1. At this point, the sorted part is A[0..n-1] (the entire array), which now means we have a sorted array. The invariant guarantees that all the elements in the sorted part are in order, meaning we are guaranteed to have a sorted array when the loop is finished.
+<br>
+Conclusion
+<br>
+Since the invariant is true in the initialization step, we maintained it, and this leads to the entire array being sorted when the loop terminates. Hence, Selection Sort is correct. 
