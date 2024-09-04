@@ -30,7 +30,7 @@ Here's a high-level description of the algorithm to help understand the process 
 
 To demonstrate the correctness of Selection Sort, we utilize a proof by loop invariant, which is a property that must be true both before and after each iteration of the loop.<br>
 
-<b>Loop Invariant<\b><br>
+<b>Loop Invariant<br><\b>
 
 Before each iteration of the main loop, we will have the following invariant.<br>
 
