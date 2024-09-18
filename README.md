@@ -16,14 +16,14 @@ for i in 0 to arr.length - 1
 endfor
 
 # Correctness of Selection Sort <br>
-To establish that the Selection Sort algorithm is correct, we can use mathematical induction and induction invariants. The idea is to prove the Selection Sort algorithm correctly sorts an array by maintaining certain conditions (invariants) that hold true before and after each iteration of the main loop.<br>
+To establish that the Selection Sort algorithm is correct, we can use mathematical induction and induction invariants. <br>
 
 Selection Sort Algorithm<br>
 
-Selection Sort sorts an array by separating the array into two sub-arrays; namely, a sorted sub-array and an unsorted sub-array. The algorithm repeatedly finds the smallest remaining element from the unsorted sub-array and swaps it into the first index of the unsorted sub-array (thus finding the smallest element from the original array). The next iteration finds the minimum element from the unsorted sub-array (the number of swaps increases by one).
+Selection Sort sorts an array by separating the array into two sub-arrays; a sorted array and an unsorted array. The algorithm repeatedly finds the smallest element from the unsorted sub-array and swaps it into the first index of the unsorted array. The next iteration finds the minimum element from the unsorted sub-array this increases the number of swaps by 1.
  <br>
 Here's a high-level description of the algorithm to help understand the process of the algorithm in general: <br>
-1. Start with the first element at index 0 as the initial sorted portion of the array.
+1. Start with the first element at index 0 as the first sorted element of the array.
 2. For each element in the unsorted portion of the array, find the minimum element.
 3. Swap the minimum element into the first element of the unsorted portion of the array. Swap. 
 4. The sorted portion now has one more element added, and the process can continue to repeat until the entire array has been sorted. <br>
